@@ -12,24 +12,36 @@ import React from "react";
 //       <div>
 //         <label htmlForm="bar">bar</label>
 //         <input type="text" onChange={()=>{console.log("Im Happy")}}></input>
-//       </div>
+//       </div> 
 //     )
 //   }
 // }
 const App = () => {
+  const profiels = [
+    {name: "TARO", age: 0},
+    {name: "HANA", age: 9},
+    {name: "oiuy"},
+    {}
+  ]
   return (
     <div>
-      <Cat />
+      {
+        profiels.map((prf, index)=> {
+          return <User name={prf.name} age={prf.age} key={index} />
+        })
+        
+      }
     </div>
   )
 }
-const Cat = () => {
+const User = (props) => {
   return (
-    <div>Hi!</div>
+    <div>Hi! {props.name} そして {props.age} </div>
   )
 }
-
-
-
+User.defaultProps = {
+  name: 'NoName',
+  age: 1
+}
 
 export default App;
